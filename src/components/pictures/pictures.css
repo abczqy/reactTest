@@ -1,0 +1,53 @@
+.pictures {
+    height: 500px;
+    text-align: center;
+}
+.home{
+    background: #FFF2B7;
+}
+.home ul{
+    list-style: none;
+}
+.all-hcy{
+    list-style: none;
+    height: 500px;
+    margin: 0;
+}
+.all-hcy li{
+    float: left;
+    margin-right: 10px;
+}
+.imageS{
+    width: 356px;
+    height: 200px;
+}
+.showPic{
+    position: fixed;
+    top: 92px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 10px;
+    background: rgba(0,0,0,.3);
+    z-index: 2;
+}
+.showPic_cont{
+    margin: 10px auto;
+    padding: 5px 10px;
+    border: 2px solid red;
+    text-align: center;
+    width: 750px;
+    background: #fff;
+}
+.imageB{
+    width: 712px;
+    height: 400px;
+}
+.p_detail{
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    background: #fff;
+    color: red;
+    text-align: center;
+}

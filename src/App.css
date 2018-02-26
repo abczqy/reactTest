@@ -1,0 +1,74 @@
+.all-header{
+  font-size: 30px;
+  font-weight: bold;
+  color: red;
+  margin-top: 12px;
+  float: left;
+}
+.nav{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background: #222;
+  padding: 20px 100px 0;
+}
+.nav ul{
+  list-style: none;
+  float: right;
+  display: flex;
+  width: 600px;
+  height: 40px;
+}
+.nav ul li{
+  flex: 1;
+  font-size: 14px;
+  text-align: center;
+  line-height: 40px;
+  vertical-align: middle;
+}
+.nav ul a{
+  color: #9da0a4;
+  text-decoration: none;
+}
+.nav .active{
+  color: red;
+  font-weight: bold;
+  text-decoration: none;
+}
+.cont{
+  position: absolute;
+  top: 102px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 100px;
+  height:500px;
+  margin-top: 10px;
+}
+.content{
+  height: 500px;
+  padding: 0 100px;
+  position: absolute;
+  left:0;
+  top:0;
+  bottom: 0;
+  right: 0;
+}
+.fade-enter {
+  opacity: 0;
+  z-index:1;
+}
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 400ms ease-in;
+}
+.fade-leave{
+  opacity: 1;
+}
+.fade-leave.fade-leave-active{
+  opacity: 0;
+}

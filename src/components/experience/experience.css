@@ -1,0 +1,16 @@
+.experience{
+    width: 300px;
+    background: #b6beb0;
+    padding: 10px 0;
+    height: 500px;
+}
+.experience a{
+    color: #000;
+    text-decoration: none;
+}
+.experience li:hover a, .experience li:hover{
+    color: red;
+}
+.experience li{
+    list-style: decimal;
+}
