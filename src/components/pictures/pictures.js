@@ -79,77 +79,45 @@ const Img =({match})=>{
     </div>)
 };
 
-const Detail=({match, history})=>{
-    const image=hcy[parseInt(match.params.id, 10)];
-    const back=(e)=>{
-        e.stopPropagation();
-        document.getElementById('detail').style.display='none';
-    };
-    return (<div className="p_detail" id="detail" onClick={back}>
-        <p>{image.title}</p>
-        <p>{image.detail}</p>
-    </div>)
-};
-
-/*const Modal=({match, history})=>{
-    const image=hcy[parseInt(match.params.id, 10)];
-    let showD = history.location.state.show &&
-                history.location.state.show === true;
-    const back = (e)=>{
-        e.stopPropagation();
-        history.location.state.show = false;
-        history.goBack();
-    };
-    const stop = (e)=>{
-        e.stopPropagation();
-    };
-    return (
-        <div className="showPic" onClick={back}>
-            <div className="showPic_cont">
-                <h2>{image.title}</h2>
-                <img src={image.url} alt="" className="imageB"/><br/>
-                <button onClick={stop}><Link to={{pathname: `${history.location.pathname}/detail`, state: {modal: true,show: true}}}>详情</Link></button>
-            </div>
-            {showD? <Route path="/pictures/img/:id/detail" component={Detail}/> : null}
-        </div>
-    )
-};*/
-
 class Modal extends React.Component{
-    previousLocation = this.props.location;
-    componentWillUpdate(nextProps) {
-        const { location } = this.props;
-        console.log(nextProps.history.action)
-        // set previousLocation if props.location is not modal
-        if (
-            nextProps.history.action !== 'POP' &&
-            (!location.state || !location.state.modal)
-        ) {
-            this.previousLocation = this.props.location
-        }
-    }
+    // componentWillUpdate(nextProps) {
+    //     const { location } = this.props;
+    //     console.log(nextProps.history.action)
+    //     // set previousLocation if props.location is not modal
+    //     if (
+    //         nextProps.history.action !== 'POP' &&
+    //         !location.state.show
+    //     ) {
+    //         this.previousLocation = this.props.location
+    //     }
+    // }
     render() {
         const match = this.props.match;
         const history = this.props.history;
         const image=hcy[parseInt(match.params.id, 10)];
-        let showD = history.location.state.show &&
-            history.location.state.show === true;
         const back = (e)=>{
             e.stopPropagation();
-            // history.push('/pictures/all');
             history.goBack();
         };
-        const stop = (e)=>{
+        const showDetail = (e)=>{
             e.stopPropagation();
+            document.getElementById('detail').style.display="block";
+        };
+        const hide = (e)=>{
+            e.stopPropagation();
+            document.getElementById('detail').style.display="none";
         };
         return (
             <div className="showPic" onClick={back}>
                 <div className="showPic_cont">
                     <h2>{image.title}</h2>
                     <img src={image.url} alt="" className="imageB"/><br/>
-                    <button onClick={stop}><Link to={{pathname: `${this.props.location.pathname}/detail`, state: {modal: true,show: true}}}>详情</Link></button>
+                    <button onClick={showDetail}>详情</button>
                 </div>
-                {showD? <Route path="/pictures/img/:id/detail" component={Detail}/> : null}
+                <div className="p_detail" id="detail" onClick={hide}>
+                    <p>{image.title}</p>
+                    <p>{image.detail}</p>
+                </div>
             </div>
         )
     }

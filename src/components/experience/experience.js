@@ -12,53 +12,32 @@ const Second = ({ routes }) => (
     <div>
         <header><h2>Second</h2></header>
         <ul>
-            <li><Link to="/experience/second/hs">花儿与少年</Link></li>
-            <li><Link to="/experience/second/cy">唱游天下</Link></li>
-            <li><Link to="/experience/second/tl">天籁之战</Link></li>
-            <li><Link to="/experience/second/hy">旅途的花样</Link></li>
-            <li><Link to="/experience/second/gs">歌手2018</Link></li>
+            <li><Link to={{pathname: "/experience/second/hs", state: {name: "花儿与少年"}}}>花儿与少年</Link></li>
+            <li><Link to={{pathname: "/experience/second/cy", state: {name: "唱游天下"}}}>唱游天下</Link></li>
+            <li><Link to={{pathname: "/experience/second/tl", state: {name: "天籁之战第一、二季"}}}>天籁之战</Link></li>
+            <li><Link to={{pathname: "/experience/second/hy", state: {name: "旅途的花样"}}}>旅途的花样</Link></li>
+            <li><Link to={{pathname: "/experience/second/gs", state: {name: "歌手2018"}}}>歌手2018</Link></li>
         </ul>
         {routes.map((route, i) => (
             <SubRoutes key={i} {...route}/>
         ))}
     </div>
 );
-const Hs = () => (
-    <div>
-        <hr/>
-        <h3>花儿与少年</h3>
-    </div>
-);
-const Cy = () => (
-    <div>
-        <hr/>
-        <h3>唱游天下</h3>
-    </div>
-);
-const Tl = () => (
-    <div>
-        <hr/>
-        <h3>天籁之战一、二季</h3>
-    </div>
-);
-const Hy = () => (
-    <div>
-        <hr/>
-        <h3>旅途的花样</h3>
-    </div>
-);
-const Gs = () => (
-    <div>
-        <hr/>
-        <h3>歌手2018</h3>
-    </div>
-);
 
-const SubRoutes = (route) => (
-    <Route path={route.path} render={props => (
-        <route.component {...props} routes={route.routes}/>
-    )}/>
-);
+const Jm = (props) => {
+    return (<div>
+        <hr/>
+        <h3>{props.location.state.name}</h3>
+    </div>)
+};
+
+const SubRoutes = (route) => {
+    return (
+        <Route path={route.path} render={props => (
+            <route.component {...props} routes={route.routes}/>
+        )}/>
+    )
+};
 
 const Experience = () => (
     <Router>
@@ -89,23 +68,23 @@ const routes = [
         routes: [
             {
                 path: '/experience/second/hs',
-                component: Hs
+                component: Jm
             },
             {
                 path: '/experience/second/cy',
-                component: Cy
+                component: Jm
             },
             {
                 path: '/experience/second/tl',
-                component: Tl
+                component: Jm
             },
             {
                 path: '/experience/second/hy',
-                component: Hy
+                component: Jm
             },
             {
                 path: '/experience/second/gs',
-                component: Gs
+                component: Jm
             }
         ]
     }
