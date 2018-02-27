@@ -1,8 +1,32 @@
 import React from 'react';
+import axios from 'axios';
 
-const Content = () =>(
-    <div style={style.cont}>content</div>
-);
+class Content extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            title: '华晨宇',
+            content: ''
+        }
+    }
+    componentDidMount() {
+        this._load();
+    }
+    _load(){
+        axios.get("./hcy/hcy.json").then(res=>{
+            this.setState({content: res.data.content});
+            document.getElementById('content').innerHTML=this.state.content;
+        })
+    }
+    render(){
+        return (
+            <div style={style.cont}>
+                <header><h3>{this.state.title}（别名：{this.props.name}）</h3></header>
+                <article id="content"></article>
+            </div>
+        )
+    }
+}
 
 const style={};
 style.cont={
@@ -10,8 +34,7 @@ style.cont={
     height: "300px",
     color: "#fff",
     width: "100%",
-    lineHeight: "300px",
     textAlign: "center",
-    verticalAlign: "middle"
+    padding: "10px 20px"
 };
 export default Content;

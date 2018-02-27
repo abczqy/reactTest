@@ -8,21 +8,21 @@ const First = () => (
         <p>2013年9月27日</p>
     </div>
 );
-const Second = ({ routes }) => (
-    <div>
-        <header><h2>Second</h2></header>
-        <ul>
-            <li><Link to={{pathname: "/experience/second/hs", state: {name: "花儿与少年"}}}>花儿与少年</Link></li>
-            <li><Link to={{pathname: "/experience/second/cy", state: {name: "唱游天下"}}}>唱游天下</Link></li>
-            <li><Link to={{pathname: "/experience/second/tl", state: {name: "天籁之战第一、二季"}}}>天籁之战</Link></li>
-            <li><Link to={{pathname: "/experience/second/hy", state: {name: "旅途的花样"}}}>旅途的花样</Link></li>
-            <li><Link to={{pathname: "/experience/second/gs", state: {name: "歌手2018"}}}>歌手2018</Link></li>
-        </ul>
-        {routes.map((route, i) => (
-            <SubRoutes key={i} {...route}/>
-        ))}
-    </div>
-);
+const Second = ({ routes }) =>(
+        <div>
+            <header><h2>Second</h2></header>
+            <ul>
+                <li><Link to={{pathname: "/experience/second/hs", state: {name: "花儿与少年"}}}>花儿与少年</Link></li>
+                <li><Link to={{pathname: "/experience/second/cy", state: {name: "唱游天下"}}}>唱游天下</Link></li>
+                <li><Link to={{pathname: "/experience/second/tl", state: {name: "天籁之战第一、二季"}}}>天籁之战</Link></li>
+                <li><Link to={{pathname: "/experience/second/hy", state: {name: "旅途的花样"}}}>旅途的花样</Link></li>
+                <li><Link to={{pathname: "/experience/second/gs", state: {name: "歌手2018"}}}>歌手2018</Link></li>
+            </ul>
+            {routes.map((route, i) => (
+                <SubRoutes key={i} {...route}/>
+            ))}
+        </div>
+    );
 
 const Jm = (props) => {
     return (<div>
@@ -71,19 +71,19 @@ const routes = [
                 component: Jm
             },
             {
-                path: '/experience/second/cy',
+                path: "/experience/second/cy",
                 component: Jm
             },
             {
-                path: '/experience/second/tl',
+                path: "/experience/second/tl",
                 component: Jm
             },
             {
-                path: '/experience/second/hy',
+                path: "/experience/second/hy",
                 component: Jm
             },
             {
-                path: '/experience/second/gs',
+                path: "/experience/second/gs",
                 component: Jm
             }
         ]
