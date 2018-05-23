@@ -13,7 +13,7 @@ class Content extends React.Component{
         this._load();
     }
     _load(){
-        axios.get("./hcy/hcy.json").then(res=>{
+        axios.get("public/hcy/hcy.json").then(res=>{
             this.setState({content: res.data.content});
             document.getElementById('content').innerHTML=this.state.content;
         })

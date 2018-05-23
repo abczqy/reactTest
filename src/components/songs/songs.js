@@ -24,7 +24,7 @@ const Song = ({match})=>(
     <div id="lyric" className="lyric">{match.params.song ? getSong(match.params.song): '请选择歌曲名'}</div>
 );
 function getSong(song){
-    axios.get('/hcy/song.json').then(res=>{
+    axios.get('public/hcy/song.json').then(res=>{
         let lyric=document.getElementById('lyric');
         lyric.innerHTML=res.data.songs[song];
     });
